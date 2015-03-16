@@ -1,0 +1,40 @@
+<template name="signin">
+  <div class="page auth">
+    <nav>
+      <div class="nav-group">
+        <a href="#" class="js-menu nav-item"><span class="icon-list-unordered"></span></a>
+      </div>
+    </nav>
+
+    <div class="content-scrollable">
+      <div class="wrapper-auth">
+        <h1 class="title-auth">登录</h1>
+        <p class="subtitle-auth" >登录后允许您查看私有列表</p>
+
+        <form>
+          {{#if errorMessages}}
+            <div class="list-errors">
+              {{#each errorMessages}}
+                <div class="list-item">{{this}}</div>
+              {{/each}}
+            </div>
+          {{/if}}
+
+          <div class="input-symbol {{errorClass 'email'}}">
+            <input type="email" name="email" placeholder="Email 地址" />
+            <span class="icon-email" title="Your Email"></span>
+          </div>
+
+          <div class="input-symbol {{errorClass 'password'}}">
+            <input type="password" name="password" placeholder="密码" />
+            <span class="icon-lock" title="Password"></span>
+          </div>
+
+          <button type="submit" class="btn-primary">登录</button>
+        </form>
+      </div>
+
+      <a href="{{pathFor 'join'}}" class="link-auth-alt">需要一个帐户？立即注册</a>
+    </div>
+  </div>
+</template>
